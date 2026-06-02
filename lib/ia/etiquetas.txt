@@ -1,0 +1,5 @@
+despejado
+lluvia
+nublado
+parcialmente_nublado
+tormenta

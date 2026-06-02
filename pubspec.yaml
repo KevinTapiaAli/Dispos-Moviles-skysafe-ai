@@ -1,0 +1,43 @@
+name: skysafe_ai
+description: Sistema Inteligente de Evaluación Meteorológica con IA.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.5.0
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  get: ^4.6.6
+
+  image_picker: ^1.1.2
+  tflite_flutter: ^0.12.1
+  image: ^4.2.0
+
+  google_fonts: ^6.2.1
+  intl: ^0.19.0
+  path_provider: ^2.1.4
+
+  pdf: ^3.11.1
+  printing: ^5.13.4
+
+  fl_chart: ^0.69.0
+  lottie: ^3.1.2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - lib/ia/modelo_skysafe.tflite
+    - lib/ia/etiquetas.txt
