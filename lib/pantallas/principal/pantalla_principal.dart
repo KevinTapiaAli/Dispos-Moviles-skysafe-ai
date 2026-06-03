@@ -41,12 +41,13 @@ class _PantallaPrincipalState extends State<PantallaPrincipal> {
     ];
 
     return Scaffold(
+      extendBody: true,
       body: AnimatedSwitcher(
         duration: const Duration(milliseconds: 350),
         switchInCurve: Curves.easeOutCubic,
         switchOutCurve: Curves.easeInCubic,
         child: IndexedStack(
-          key: ValueKey(indiceActual),
+          key: ValueKey<int>(indiceActual),
           index: indiceActual,
           children: paginas,
         ),

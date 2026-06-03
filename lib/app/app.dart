@@ -11,7 +11,7 @@ class SkySafeApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      title: 'SkySafe AI',
+      title: 'CieloSeguro IA',
       debugShowCheckedModeBanner: false,
       theme: TemaApp.temaClaro,
       initialRoute: RutasApp.bienvenida,

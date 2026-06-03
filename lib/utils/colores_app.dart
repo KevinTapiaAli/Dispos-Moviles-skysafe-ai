@@ -1,57 +1,75 @@
 import 'package:flutter/material.dart';
 
 class ColoresApp {
-  // Nueva identidad visual profesional
-  static const Color azulNoche = Color(0xFF0B1F33);
-  static const Color azulPetroleo = Color(0xFF12344D);
-  static const Color azulPrincipal = Color(0xFF1F5D7A);
-  static const Color azulSecundario = Color(0xFF2E7DA1);
-  static const Color cianSuave = Color(0xFF5BC0EB);
-  static const Color celesteClaro = Color(0xFFDFF3FA);
+  // Identidad principal: estilo aeroespacial moderno
+  static const Color nocheProfunda = Color(0xFF07111F);
+  static const Color azulEspacial = Color(0xFF0B1E33);
+  static const Color azulGalactico = Color(0xFF102A43);
+  static const Color azulElectrico = Color(0xFF2563EB);
+  static const Color cianNeon = Color(0xFF22D3EE);
+  static const Color violetaIA = Color(0xFF7C3AED);
+  static const Color lavandaSuave = Color(0xFFEDE9FE);
 
-  static const Color blanco = Color(0xFFFFFFFF);
-  static const Color fondoClaro = Color(0xFFF4F7FA);
-  static const Color grisClaro = Color(0xFFE7EDF3);
-  static const Color grisTexto = Color(0xFF6B7A8C);
-  static const Color grisOscuro = Color(0xFF243447);
+  // Fondos
+  static const Color fondoClaro = Color(0xFFF6F8FC);
+  static const Color fondoTarjeta = Color(0xFFFFFFFF);
+  static const Color fondoSuave = Color(0xFFEFF6FF);
+  static const Color bordeSuave = Color(0xFFE2E8F0);
 
-  static const Color verdeExito = Color(0xFF30B27A);
-  static const Color verdeSuave = Color(0xFFE7F8F0);
+  // Textos
+  static const Color textoPrincipal = Color(0xFF111827);
+  static const Color textoSecundario = Color(0xFF64748B);
+  static const Color textoClaro = Color(0xFFFFFFFF);
 
-  static const Color naranjaAlerta = Color(0xFFF4A340);
-  static const Color naranjaSuave = Color(0xFFFFF2E2);
+  // Estados operativos
+  static const Color riesgoBajo = Color(0xFF10B981);
+  static const Color riesgoMedio = Color(0xFFF59E0B);
+  static const Color riesgoAlto = Color(0xFFEF4444);
 
-  static const Color rojoError = Color(0xFFE85D5D);
-  static const Color rojoSuave = Color(0xFFFFEBEB);
+  static const Color verdeSuave = Color(0xFFD1FAE5);
+  static const Color naranjaSuave = Color(0xFFFEF3C7);
+  static const Color rojoSuave = Color(0xFFFEE2E2);
+  static const Color azulSuave = Color(0xFFDBEAFE);
+  static const Color cianSuave = Color(0xFFCFFAFE);
+  static const Color violetaSuave = Color(0xFFEDE9FE);
 
   // Compatibilidad con nombres anteriores
-  static const Color azulOscuro = azulNoche;
-  static const Color azulMedio = azulSecundario;
-  static const Color celesteIA = cianSuave;
-  static const Color textoPrincipal = grisOscuro;
-  static const Color textoSecundario = grisTexto;
-  static const Color riesgoBajo = verdeExito;
-  static const Color riesgoMedio = naranjaAlerta;
-  static const Color riesgoAlto = rojoError;
+  static const Color azulNoche = nocheProfunda;
+  static const Color azulPetroleo = azulGalactico;
+  static const Color azulPrincipal = azulElectrico;
+  static const Color azulSecundario = cianNeon;
+  static const Color azulOscuro = nocheProfunda;
+  static const Color azulMedio = azulElectrico;
+  static const Color grisTexto = textoSecundario;
+  static const Color grisOscuro = textoPrincipal;
+  static const Color grisClaro = bordeSuave;
+  static const Color blanco = fondoTarjeta;
+  static const Color celesteClaro = cianSuave;
+  static const Color celesteIA = cianNeon;
+  static const Color verdeExito = riesgoBajo;
+  static const Color naranjaAlerta = riesgoMedio;
+  static const Color rojoError = riesgoAlto;
   static const Color sombraSuave = Color(0x1A000000);
 
+  // Gradientes principales
   static const LinearGradient gradientePrincipal = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      azulNoche,
-      azulPrincipal,
-      cianSuave,
+      nocheProfunda,
+      azulGalactico,
+      violetaIA,
     ],
   );
 
-  static const LinearGradient gradienteTarjetaHero = LinearGradient(
+  static const LinearGradient gradienteAurora = LinearGradient(
     begin: Alignment.topLeft,
     end: Alignment.bottomRight,
     colors: [
-      Color(0xFF0F2740),
-      Color(0xFF1C5977),
-      Color(0xFF59B9D9),
+      Color(0xFF07111F),
+      Color(0xFF102A43),
+      Color(0xFF1E3A8A),
+      Color(0xFF7C3AED),
     ],
   );
 
@@ -59,8 +77,40 @@ class ColoresApp {
     begin: Alignment.centerLeft,
     end: Alignment.centerRight,
     colors: [
-      azulPrincipal,
-      azulSecundario,
+      azulElectrico,
+      cianNeon,
     ],
+  );
+
+  static const LinearGradient gradienteTarjetaHero = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      nocheProfunda,
+      azulGalactico,
+      azulElectrico,
+      cianNeon,
+    ],
+  );
+
+  static const LinearGradient gradienteVioleta = LinearGradient(
+    begin: Alignment.topLeft,
+    end: Alignment.bottomRight,
+    colors: [
+      violetaIA,
+      azulElectrico,
+    ],
+  );
+
+  static BoxShadow sombraElegante = BoxShadow(
+    color: Colors.black.withOpacity(0.08),
+    blurRadius: 24,
+    offset: const Offset(0, 12),
+  );
+
+  static BoxShadow sombraBoton = BoxShadow(
+    color: azulElectrico.withOpacity(0.28),
+    blurRadius: 22,
+    offset: const Offset(0, 10),
   );
 }

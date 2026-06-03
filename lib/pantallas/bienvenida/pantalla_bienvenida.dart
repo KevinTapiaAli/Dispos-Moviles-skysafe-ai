@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 
 import '../../app/rutas_app.dart';
 import '../../utils/colores_app.dart';
 import '../../utils/textos_app.dart';
+import '../../widgets/animaciones/entrada_animada.dart';
+import '../../widgets/animaciones/fondo_aurora.dart';
+import '../../widgets/botones/boton_gradiente.dart';
 
 class PantallaBienvenida extends StatelessWidget {
   const PantallaBienvenida({super.key});
@@ -12,170 +14,201 @@ class PantallaBienvenida extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        decoration: const BoxDecoration(
-          gradient: ColoresApp.gradientePrincipal,
-        ),
+      body: FondoAurora(
         child: SafeArea(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 28, vertical: 24),
-            child: TweenAnimationBuilder<double>(
-              tween: Tween(begin: 0.85, end: 1),
-              duration: const Duration(milliseconds: 700),
-              builder: (context, value, child) {
-                return Opacity(
-                  opacity: value,
-                  child: Transform.scale(
-                    scale: value,
-                    child: child,
-                  ),
-                );
-              },
-              child: Column(
-                children: [
-                  const Spacer(),
+            padding: const EdgeInsets.fromLTRB(26, 24, 26, 28),
+            child: Column(
+              children: [
+                const Spacer(),
 
-                  Container(
-                    width: 126,
-                    height: 126,
+                EntradaAnimada(
+                  delay: 100,
+                  child: Container(
+                    width: 132,
+                    height: 132,
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.14),
+                      color: Colors.white.withOpacity(0.12),
                       shape: BoxShape.circle,
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.35),
+                        color: Colors.white.withOpacity(0.28),
                         width: 2,
                       ),
+                      boxShadow: [
+                        BoxShadow(
+                          color: ColoresApp.cianNeon.withOpacity(0.30),
+                          blurRadius: 36,
+                          spreadRadius: 4,
+                        ),
+                      ],
                     ),
                     child: const Icon(
                       Icons.radar_rounded,
-                      size: 62,
                       color: Colors.white,
+                      size: 70,
                     ),
                   ),
+                ),
 
-                  const SizedBox(height: 28),
+                const SizedBox(height: 32),
 
-                  Text(
+                EntradaAnimada(
+                  delay: 220,
+                  child: Text(
                     TextosApp.nombreApp,
                     textAlign: TextAlign.center,
                     style: const TextStyle(
-                      fontSize: 34,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 38,
+                      fontWeight: FontWeight.w900,
                       color: Colors.white,
+                      letterSpacing: 0.5,
                     ),
                   ),
+                ),
 
-                  const SizedBox(height: 12),
+                const SizedBox(height: 12),
 
-                  Text(
-                    TextosApp.bienvenidaTitulo,
+                const EntradaAnimada(
+                  delay: 330,
+                  child: Text(
+                    'Inteligencia visual para evaluar el cielo',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.w600,
+                    style: TextStyle(
                       color: Colors.white,
+                      fontSize: 19,
+                      fontWeight: FontWeight.w600,
+                      height: 1.35,
                     ),
                   ),
+                ),
 
-                  const SizedBox(height: 16),
+                const SizedBox(height: 18),
 
-                  Text(
+                EntradaAnimada(
+                  delay: 440,
+                  child: Text(
                     TextosApp.bienvenidaMensaje,
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.88),
                       fontSize: 15,
-                      height: 1.6,
-                      color: Colors.white,
+                      height: 1.65,
                     ),
                   ),
+                ),
 
-                  const SizedBox(height: 28),
+                const SizedBox(height: 30),
 
-                  Container(
+                EntradaAnimada(
+                  delay: 540,
+                  child: Container(
                     width: double.infinity,
                     padding: const EdgeInsets.all(18),
                     decoration: BoxDecoration(
-                      color: Colors.white.withOpacity(0.14),
-                      borderRadius: BorderRadius.circular(24),
+                      color: Colors.white.withOpacity(0.12),
+                      borderRadius: BorderRadius.circular(28),
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.25),
+                        color: Colors.white.withOpacity(0.18),
                       ),
                     ),
-                    child: Column(
+                    child: const Column(
                       children: [
-                        const Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            Icon(Icons.cloud_done_rounded,
-                                color: Colors.white),
-                            SizedBox(width: 10),
-                            Text(
-                              'Análisis visual + apoyo operativo',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ],
+                        _ItemBeneficio(
+                          icono: Icons.cloud_done_rounded,
+                          texto: 'Clasificación visual del cielo',
                         ),
-                        const SizedBox(height: 12),
-                        Text(
-                          TextosApp.subtituloApp,
-                          textAlign: TextAlign.center,
-                          style: const TextStyle(
-                            color: Colors.white,
-                            height: 1.5,
-                            fontSize: 14,
-                          ),
+                        SizedBox(height: 12),
+                        _ItemBeneficio(
+                          icono: Icons.shield_rounded,
+                          texto: 'Nivel de riesgo operativo',
+                        ),
+                        SizedBox(height: 12),
+                        _ItemBeneficio(
+                          icono: Icons.picture_as_pdf_rounded,
+                          texto: 'Reportes listos para presentar',
                         ),
                       ],
                     ),
                   ),
+                ),
 
-                  const Spacer(),
+                const Spacer(),
 
-                  SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton.icon(
-                      onPressed: () {
-                        Get.offNamed(RutasApp.principal);
-                      },
-                      icon: const Icon(Icons.arrow_forward_rounded),
-                      label: const Text('Ingresar a la experiencia'),
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.white,
-                        foregroundColor: ColoresApp.azulPrincipal,
-                        padding: const EdgeInsets.symmetric(vertical: 18),
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                      ),
-                    ),
-                  ),
-
-                  const SizedBox(height: 14),
-
-                  TextButton(
+                EntradaAnimada(
+                  delay: 660,
+                  child: BotonGradiente(
+                    texto: 'Comenzar análisis',
+                    icono: Icons.arrow_forward_rounded,
                     onPressed: () {
                       Get.offNamed(RutasApp.principal);
                     },
-                    child: const Text(
-                      'Explorar ahora',
+                  ),
+                ),
+
+                const SizedBox(height: 14),
+
+                EntradaAnimada(
+                  delay: 760,
+                  child: TextButton(
+                    onPressed: () {
+                      Get.offNamed(RutasApp.principal);
+                    },
+                    child: Text(
+                      'Explorar la aplicación',
                       style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w500,
+                        color: Colors.white.withOpacity(0.86),
+                        fontWeight: FontWeight.w600,
                       ),
                     ),
                   ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),
       ),
+    );
+  }
+}
+
+class _ItemBeneficio extends StatelessWidget {
+  final IconData icono;
+  final String texto;
+
+  const _ItemBeneficio({
+    required this.icono,
+    required this.texto,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Container(
+          width: 38,
+          height: 38,
+          decoration: BoxDecoration(
+            color: Colors.white.withOpacity(0.14),
+            borderRadius: BorderRadius.circular(14),
+          ),
+          child: Icon(
+            icono,
+            color: ColoresApp.cianNeon,
+            size: 21,
+          ),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            texto,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 14,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }
